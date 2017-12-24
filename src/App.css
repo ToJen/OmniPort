@@ -66,3 +66,12 @@ pre {
   height: 16px;
   margin-right: 10px;
 }
+
+.logos {
+  height: 80%;
+  width: 80%;
+}
+
+.info-control {
+  margin-right: 10px;
+}
