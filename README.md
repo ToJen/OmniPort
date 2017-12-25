@@ -7,11 +7,13 @@ Over time, we forget where we have given out our data and do not know who else h
 With OmniPort, you can view every place you have ever been registered in, selectively restrict the data you've given out, revoke access to your data and update your public general information from one spot which reflects to all allowed entities.
 
 ## Usage
-- npm install
-- npm start
+- `npm install`
+- `npm start`
 
 ## Future Enhancements
 
 - Choose the data sent to each entity
 - View all registered entities in the Profile page.
 - Set an expiry date for each place
+
+* Originally submitted for the _ConsenSys - uPort Blockchain and Identity Hackathon_ hosted by TopCoder
