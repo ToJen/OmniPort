@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { HiddenOnlyAuth, VisibleOnlyAuth } from './util/wrappers.js'
+import omniPortLogo from './img/OmniPort-logo.png'
 
 // UI Components
 import LoginButtonContainer from './user/ui/loginbutton/LoginButtonContainer'
@@ -35,12 +36,15 @@ class App extends Component {
     return (
       <div className="App">
         <nav className="navbar pure-menu pure-menu-horizontal">
-          <Link to="/" className="pure-menu-heading pure-menu-link">OmniPort</Link>
+          <Link to="/" className="pure-menu-heading pure-menu-link">
+            <img className="omniport-logo" src={omniPortLogo} alt="OmniPort logo" />OmniPort
+          </Link>
           <ul className="pure-menu-list navbar-right">
             <OnlyGuestLinks />
             <OnlyAuthLinks />
           </ul>
         </nav>
+        <br/><br/>
 
         {this.props.children}
       </div>

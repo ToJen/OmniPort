@@ -23,7 +23,7 @@ pre {
 }
 
 .pure-button-primary {
-  background-color: #0c1a2b;
+  background-color: #db7a04;
 }
 
 .pure-button-primary:hover {
@@ -31,7 +31,7 @@ pre {
 }
 
 .pure-form input[type="text"]:focus {
-  border-color: #0c1a2b;
+  border-color: #db7a04;
 }
 
 /* NAVBAR */
@@ -39,7 +39,7 @@ pre {
 .navbar {
   position: fixed;
   padding: 5px;
-  background: #0c1a2b;
+  background: #db7a04;
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
 }
 
@@ -56,6 +56,7 @@ pre {
 .navbar .pure-menu-heading {
   font-weight: bold;
   text-transform: none;
+  /*font-size: 150%;*/
 }
 
 .navbar .navbar-right {
@@ -67,12 +68,19 @@ pre {
   margin-right: 10px;
 }
 
+
+.omniport-logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
 .logos {
   height: 80%;
   width: 80%;
 }
 
 .info-control {
+  background-color: #2169a8;
   margin-right: 10px;
 }
 
@@ -83,13 +91,14 @@ pre {
 }
 
 .button-success {
-    background: rgb(28, 184, 65); /* this is a green */
+    background: rgb(28, 184, 65);
 }
 
 .button-error {
-    background: rgb(202, 60, 60); /* this is a maroon */
+    background: rgb(202, 60, 60);
 }
 
 .modal-control {
   margin-right: 10px;
+  float: right;
 }

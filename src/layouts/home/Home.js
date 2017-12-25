@@ -9,27 +9,30 @@ class Home extends Component {
             <br/><br/>
             <h1>Welcome!</h1>
             <p>OmniPort lets you control your general public information through a digital identity.</p>
-            <h2>UPort Authentication</h2>
-            <p>This particular box comes with UPort autentication built-in.</p>
-            <p>NOTE: To interact with your smart contracts through UPort's web3 instance, make sure they're deployed to the Ropsten testnet.</p>
-            <p>In the upper-right corner, you'll see a login button. Click it to login with UPort. There is an authenticated route, "/dashboard", that displays the UPort user's name once authenticated.</p>
-            <h3>Redirect Path</h3>
-            <p>This example redirects home ("/") when trying to access an authenticated route without first authenticating. You can change this path in the failureRedriectUrl property of the UserIsAuthenticated wrapper on <strong>line 9</strong> of util/wrappers.js.</p>
-            <h3>Accessing User Data</h3>
-            <p>Once authenticated, any component can access the user's data by assigning the authData object to a component's props.</p>
-            <pre><code>
-              {"// In component's constructor."}<br/>
-              {"constructor(props, { authData }) {"}<br/>
-              {"  super(props)"}<br/>
-              {"  authData = this.props"}<br/>
-              {"}"}<br/><br/>
-              {"// Use in component."}<br/>
-              {"Hello { this.props.authData.name }!"}
-            </code></pre>
-            <h3>Further Reading</h3>
-            <p>The React/Redux portions of the authentication fuctionality are provided by <a href="https://github.com/mjrussell/redux-auth-wrapper" target="_blank">mjrussell/redux-auth-wrapper</a>.</p>
+            <hr/>
+            <h2>uPort Authentication</h2>
+            <p>This dApp is powered by uPort, another dApp on the Ethereum blockchain, which is <em>"a self-sovereign identity and user-centric data platform"</em>.</p>
+            <hr/>
+            <h2>Why OmniPort?</h2>
+            <p>
+            Many times, we register or sign up in different restaurants, banks, supermarkets and so on because we want to receive certain services from them or be notified of any updates.
+            Over time, we forget where we have given out our data and do not know who else has access to it. We are also faced with the challenge of having to manually update our credentials at these places only when we are physically present.
+            With OmniPort, you can view every place you have ever been registered in, selectively restrict the data you've given out, revoke access to your data and update your public general information from one spot which reflects to all allowed entities.
+            </p>
+            <h3>Usage</h3>
+            <p><strong>NOTE</strong>: You will have to download the uPort mobile app from the App Store or Google Play</p>
+            <p>In the upper-right corner, you'll see a login button. Click it to login with uPort.</p>
+            <hr/>
+            <h3>Future Enhancements</h3>
+            <ul>
+              <li>Choose the data sent to each entity</li>
+              <li>View all registered entities in the Profile page.</li>
+              <li>Set an expiry date for each place</li>
+            </ul>
           </div>
         </div>
+        <br/>
+        <a href="https://github.com/ToJen/OmniPort" target="_blank">GitHub Source Code</a>
       </main>
     )
   }

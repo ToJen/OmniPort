@@ -28,7 +28,7 @@ class ButtonController extends Component {
     super(props)
     this.handleRegisterClick = this.handleRegisterClick.bind(this)
     this.handleRevokeClick = this.handleRevokeClick.bind(this)
-    this.handleEditClick = this.handleEditClick.bind(this)
+    // this.handleEditClick = this.handleEditClick.bind(this)
 
     this.openModal = this.openModal.bind(this)
     this.afterOpenModal = this.afterOpenModal.bind(this)
@@ -46,36 +46,36 @@ class ButtonController extends Component {
   handleRegisterClick() {
     this.openModal()
     this.setState({isRegistered: true})
-    console.log('registered')
+    // console.log('registered')
   }
 
   handleRevokeClick() {
     this.setState({isRegistered: false})
-    console.log('revoked')
+    // console.log('revoked')
   }
 
-  handleEditClick() {
-    console.log('edit')
-    // this.setState({isRegistered: false})
-  }
+  // handleEditClick() {
+  //   // console.log('edit')
+  //   // this.setState({isRegistered: false})
+  // }
 
   openModal() {
     this.setState({modalIsOpen: true})
-    console.log('modal opened')
+    // console.log('modal opened')
   }
 
   afterOpenModal() {
-    console.log('now registering')
+    // console.log('now registering')
   }
 
   closeModal() {
     this.setState({modalIsOpen: false})
-    console.log('modal closed')
+    // console.log('modal closed')
   }
 
   registerEntity() {
     // u
-    console.log("entity has been registered")
+    // console.log("entity has been registered")
     this.closeModal()
   }
 
@@ -106,7 +106,7 @@ class ButtonController extends Component {
                   <button className="button-error pure-button modal-control" onClick={this.quitRegistration}>Cancel</button>
                   <button className="button-success pure-button modal-control" onClick={this.registerEntity}>Confirm</button>
                  </Modal>
-      buttonDiv = <div><button className="pure-button pure-button-primary info-control" onClick={this.handleEditClick}>Edit</button><button className="pure-button pure-button-primary info-control" onClick={this.handleRevokeClick}>Revoke</button></div>
+      buttonDiv = <button className="pure-button pure-button-primary info-control" onClick={this.handleRevokeClick}>Revoke Access</button>
 
     } else {
       buttonDiv = <button className="pure-button pure-button-primary info-control" onClick={this.handleRegisterClick}>Register</button>
@@ -147,7 +147,7 @@ class Dashboard extends Component {
           </div>
         </div>
         <hr/> <br/>
-        <h1>Entities</h1>
+        <h2>Entities</h2>
         <p>These are places where you can register to get access to their services. You can restrict the amount of information each entity has or revoke their access to your information.</p>
         <br/>
         <div className="pure-g">
@@ -181,7 +181,7 @@ class Dashboard extends Component {
           </div>
           <div className="pure-u-1-3">
             <img src={dealer} className="logos" alt="Carworld car dealership logo" /><br/>
-            <ButtonController />
+            <ButtonController isRegistered/>
           </div>
           <div className="pure-u-1-3">
             <img src={bank} className="logos" alt="Standard Chartered Bank logo" /><br/>
@@ -189,7 +189,6 @@ class Dashboard extends Component {
           </div>
           <br/>
         </div>
-        <a href="https://github.com/ToJen/OmniPort" target="_blank">GitHub Code</a>
       </main>
     )
   }
