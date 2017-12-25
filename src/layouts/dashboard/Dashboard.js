@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Modal from 'react-modal'
 
 import gap from '../../img/gap.png'
 import hospital from '../../img/hospital.jpg'
@@ -11,6 +12,16 @@ import dealer from '../../img/car-dealer.jpg'
 import cryptokitty from '../../img/cryptokitty.jpg'
 
 
+const modalStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
 
 class ButtonController extends Component {
   constructor(props) {
@@ -18,17 +29,29 @@ class ButtonController extends Component {
     this.handleRegisterClick = this.handleRegisterClick.bind(this)
     this.handleRevokeClick = this.handleRevokeClick.bind(this)
     this.handleEditClick = this.handleEditClick.bind(this)
-    this.state = {isRegistered: this.props.isRegistered}
+
+    this.openModal = this.openModal.bind(this)
+    this.afterOpenModal = this.afterOpenModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
+
+    this.registerEntity = this.registerEntity.bind(this)
+    this.quitRegistration = this.quitRegistration.bind(this)
+
+    this.state = {
+      isRegistered: this.props.isRegistered,
+      modalIsOpen: false
+    }
   }
 
   handleRegisterClick() {
-    console.log('registered')
+    this.openModal()
     this.setState({isRegistered: true})
+    console.log('registered')
   }
 
   handleRevokeClick() {
-    console.log('revoked')
     this.setState({isRegistered: false})
+    console.log('revoked')
   }
 
   handleEditClick() {
@@ -36,12 +59,55 @@ class ButtonController extends Component {
     // this.setState({isRegistered: false})
   }
 
+  openModal() {
+    this.setState({modalIsOpen: true})
+    console.log('modal opened')
+  }
+
+  afterOpenModal() {
+    console.log('now registering')
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false})
+    console.log('modal closed')
+  }
+
+  registerEntity() {
+    // u
+    console.log("entity has been registered")
+    this.closeModal()
+  }
+
+  quitRegistration() {
+    this.setState({isRegistered: false})
+  }
+
+
   render() {
     const isRegistered = this.state.isRegistered
 
-    let buttonDiv = null;
+    let buttonDiv = null
+    let modalDiv = null
     if (isRegistered) { 
+      modalDiv = <Modal isOpen={this.state.modalIsOpen} onAfterOpen={this.afterOpenModal} onRequestClose={this.closeModal} style={modalStyles} contentLabel="Register here">
+                  <h2>Register</h2>
+                  <p>Select which information you want to release</p>
+                  <br/>
+                  <form>
+                    <label><input type="checkbox" /> Photo   </label>
+                    <label><input type="checkbox" /> Name   </label>
+                    <label><input type="checkbox" /> Email   </label>
+                    <label><input type="checkbox" /> Phone   </label>
+                    <label><input type="checkbox" /> Address   </label>
+                    <label><input type="checkbox" /> Location   </label>
+                  </form>
+                  <br/>
+                  <button className="button-error pure-button modal-control" onClick={this.quitRegistration}>Cancel</button>
+                  <button className="button-success pure-button modal-control" onClick={this.registerEntity}>Confirm</button>
+                 </Modal>
       buttonDiv = <div><button className="pure-button pure-button-primary info-control" onClick={this.handleEditClick}>Edit</button><button className="pure-button pure-button-primary info-control" onClick={this.handleRevokeClick}>Revoke</button></div>
+
     } else {
       buttonDiv = <button className="pure-button pure-button-primary info-control" onClick={this.handleRegisterClick}>Register</button>
     }
@@ -49,6 +115,7 @@ class ButtonController extends Component {
     return(
       <div>
         {buttonDiv}
+        {modalDiv}
       </div>
     )
   }
@@ -82,6 +149,7 @@ class Dashboard extends Component {
         <hr/> <br/>
         <h1>Entities</h1>
         <p>These are places where you can register to get access to their services. You can restrict the amount of information each entity has or revoke their access to your information.</p>
+        <br/>
         <div className="pure-g">
           <div className="pure-u-1-3">
             <img src={gap} className="logos" alt="GAP store logo" /><br/>
@@ -100,29 +168,33 @@ class Dashboard extends Component {
             <ButtonController isRegistered/>
           </div>
           <div className="pure-u-1-3">
-            <img src={bank} className="logos" alt="Standard Chartered Bank logo" /><br/>
+            <img src={gym} className="logos" alt="Gym Town logo" /><br/>
             <ButtonController />
           </div>
           <div className="pure-u-1-3">
-            <img src={gym} className="logos" alt="Gym Town logo" /><br/>
+            <img src={cryptokitty} className="logos" alt="CryptoKitties logo" /><br/>
             <ButtonController isRegistered/>
           </div>
           <div className="pure-u-1-3">
             <img src={sobeys} className="logos" alt="Sobeys grocery store logo" /><br/>
-            <ButtonController isRegistered/>
+            <ButtonController />
           </div>
           <div className="pure-u-1-3">
             <img src={dealer} className="logos" alt="Carworld car dealership logo" /><br/>
             <ButtonController />
           </div>
           <div className="pure-u-1-3">
-            <img src={cryptokitty} className="logos" alt="Carworld car dealership logo" /><br/>
-            <ButtonController isRegistered/>
+            <img src={bank} className="logos" alt="Standard Chartered Bank logo" /><br/>
+            <ButtonController />
           </div>
+          <br/>
         </div>
+        <a href="https://github.com/ToJen/OmniPort" target="_blank">GitHub Code</a>
       </main>
     )
   }
 }
+
+Modal.setAppElement('body');
 
 export default Dashboard

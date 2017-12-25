@@ -9,6 +9,7 @@ function userLoggedIn(user) {
   }
 }
 
+
 export function loginUser() {
   return function(dispatch) {
     // UPort and its web3 instance are defined in ./../../../util/wrappers.
