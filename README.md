@@ -16,4 +16,5 @@ With OmniPort, you can view every place you have ever been registered in, select
 - View all registered entities in the Profile page.
 - Set an expiry date for each place
 
-* Originally submitted for the _ConsenSys - uPort Blockchain and Identity Hackathon_ hosted by TopCoder
+
+*Originally submitted for the **ConsenSys - uPort Blockchain and Identity Hackathon** hosted by TopCoder*
